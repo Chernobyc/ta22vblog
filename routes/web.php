@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicController;
@@ -26,6 +27,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::resource('/admin/posts', PostController::class);
+    Route::resource('/admin/tags', TagController::class);
 
     Route::post('/post/{post}/like', [PublicController::class, 'like'])->name('like');
 
